@@ -1,11 +1,17 @@
 @extends('layout.app')
+<form action="" method="post" class="float-right d-flex justify-content-end">
+    <div class=" d-inline-flex p-10 flex-row-reverse  ">
+        <select class="form-select p-10" aria-label="Default select example" name='language' id='select'>
+            <option value="vi">Tiếng Việt</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+</form>
 <header class=" p-3 mb-3 border-bottom ">
     <div class=" container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-
             <img src="https://static.kfcvietnam.com.vn/images/web/kfc-logo.svg?v=5.0" alt="mdo" width="50" height="50"
                 class="rounded-circle ">
-
             <ul class="nav col-19 col-lg-auto me-lg-auto mb-5 justify-content-center mb-md-0 " id="menu">
                 <li><a href="#" class="nav-link px-5 link-secondary  bg-info rounded-pill fw-bold">Thực đơn</a></li>
                 <li><a href="#" class="nav-link px-5 link-dark  rounded-pill fw-bold rounded-pill">Khuyến mãi</a>
@@ -17,7 +23,7 @@
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
-
+            @lang('validation.required')
             <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,11 +38,17 @@
                     </li>
                     <li><a class="dropdown-item" href="#">Thoát</a></li>
                 </ul>
+
             </div>
         </div>
     </div>
 </header>
 @include("layout.carousel")
+
+
+
+
+
 <script>
     menu = document.querySelector("#menu")
         menu.addEventListener("click", function(event) {
@@ -48,4 +60,7 @@
 
             }
         })
+
+    a=document.querySelector('#select')
+    console.log(a)
 </script>

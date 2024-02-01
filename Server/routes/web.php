@@ -25,4 +25,6 @@ Route::prefix("/customer")->controller(AccountController::class)->group(function
     Route::post('/signup', 'signup')->name('signup');
     Route::post('/login', 'login')->name('login');
     Route::get('/login', 'login_page')->name('login-page');
+    Route::post('/editProfile', 'editProfile')->name('editProfile');
+    Route::post('/changeImage', 'changeImage')->name('changeImage');
 });

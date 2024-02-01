@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use Spatie\Backtrace\File;
 
 class AccountController extends Controller
 {
     public function profile()
     {
-        return view('Account.Customer.index');
+        dd(request()->getPreferredLanguage());
+        $user = Auth::user();
+
+        return view('Account.Customer.index', compact('user'));
     }
     public function login_page()
     {
@@ -44,10 +51,10 @@ class AccountController extends Controller
                 'username' => $request->username,
                 'birthday' => $request->birth_date,
                 'sex' => $request->gender,
-                'createDay' => now()
+                'created_day' => now()
             ]);
             if ($request->has('image')) {
-                $filename = $request->file('image')->getClientOriginalName() + now();
+                $filename = time()  . $request->file('image')->getClientOriginalName();
                 $customer->image = $filename;
                 $request->file('image')->move(base_path('public\storage\image\customer'), $filename);
             }
@@ -78,5 +85,51 @@ class AccountController extends Controller
         return Redirect::back()->withErrors([
             'username_faild' => 'Username or password not found'
         ]);
+    }
+    public function editProfile(Request $request)
+    {
+        App::setLocale('vi');
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email'
+        ]);
+        try {
+            $user = User::find(Auth::user()->id);
+            $user->username = $request->username;
+            $user->firstname = $request->firstname;
+            $user->lastname = $request->lastname;
+            $user->sex = $request->sex;
+            $user->address = $request->address;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->birthday = $request->birthday;
+            $user->save();
+            return back()->with('success', 'change information user success! ');
+        } catch (Exception $excetion) {
+            return back()->with('faild', 'change information user faild!');
+        }
+    }
+    public function changeImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|mimes:jpeg,jpg,png,gif',
+        ]);
+        if ($request->has('image')) {
+            try {
+                $user = User::find(Auth::user()->id);
+                $filename = time() . $request->file('image')->getClientOriginalName();
+                $image_path = public_path('storage/image/customer/' . $user->image);
+                if (file_exists($image_path)) {
+
+                    unlink($image_path);
+                }
+                $request->file('image')->move(base_path('public\storage\image\customer'), $filename);
+                $user->image = $filename;
+                $user->save();
+                return back()->with('successImage', 'update image success! ');
+            } catch (Exception $excetion) {
+                return back()->with('faildImage', 'update image faild!');
+            }
+        }
     }
 }
