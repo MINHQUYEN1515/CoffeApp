@@ -15,7 +15,7 @@ class AccountController extends Controller
 {
     public function profile()
     {
-        dd(request()->getPreferredLanguage());
+
         $user = Auth::user();
 
         return view('Account.Customer.index', compact('user'));
@@ -69,7 +69,7 @@ class AccountController extends Controller
         $request->validate([
             'username_login' => 'required',
             'password_login' => 'required|string|min:6',
-            'g-recaptcha-response' => 'required|captcha'
+            // 'g-recaptcha-response' => 'required|captcha'
         ]);
         $user = [
             'username' => $request->username_login,
@@ -131,5 +131,10 @@ class AccountController extends Controller
                 return back()->with('faildImage', 'update image faild!');
             }
         }
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return back();
     }
 }

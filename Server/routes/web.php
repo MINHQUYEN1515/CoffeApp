@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
-    Route::get('/handle', 'handle');
+    Route::get('/setlanguage/{language}', 'setlanguage')->name('setlanguage');
 });
 Route::prefix("/customer")->controller(AccountController::class)->group(function () {
     Route::get('/profile', 'profile')->name('account-index')->middleware('auth');
@@ -27,4 +28,8 @@ Route::prefix("/customer")->controller(AccountController::class)->group(function
     Route::get('/login', 'login_page')->name('login-page');
     Route::post('/editProfile', 'editProfile')->name('editProfile');
     Route::post('/changeImage', 'changeImage')->name('changeImage');
+    Route::get('/logout', 'logout')->name('logout');
+});
+Route::prefix('/product')->controller(ProductController::class)->group(function () {
+    Route::get('/', 'index');
 });

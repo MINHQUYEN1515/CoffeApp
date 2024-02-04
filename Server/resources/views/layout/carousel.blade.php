@@ -9,14 +9,16 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://static.kfcvietnam.com.vn/images/web/kfc-logo.svg?v=5.0" class="d-block w-100" alt="..."
-                style="height: 300px">
+            <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/BrandFresh/Love.png" class="d-block w-100"
+                alt="..." style="height: 300px">
         </div>
         <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="..." style="height: 300px">>
+            <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/DC/digital_website-1440x460-2.png"
+                class="d-block w-100" alt="..." style="height: 300px">>
         </div>
         <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="..." style="height: 300px">>
+            <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/BrandFresh/Respect.png"
+                class="d-block w-100" alt="..." style="height: 300px">>
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

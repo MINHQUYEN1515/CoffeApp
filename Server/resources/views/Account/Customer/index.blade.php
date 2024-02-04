@@ -61,7 +61,7 @@ use App\Config\UrlBase;
                     <div class="card-header">Profile Picture</div>
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
-                        <img class="img-account-profile rounded-circle mb-2 "
+                        <img class="img-account-profile rounded-circle mb-2 " style="width:100px;height:100px"
                             src="{{asset(UrlBase::getImageCustomer($user->image))}}" alt="profile image">
                         <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                         <!-- Profile picture upload button-->
