@@ -70,8 +70,7 @@ use App\Config\UrlBase;
 </header>
 @include("layout.carousel")
 @include('product.index_product')
-
-
+@include('layout.dowloadapp')
 
 
 <script>

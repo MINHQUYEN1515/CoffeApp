@@ -8,4 +8,8 @@ class UrlBase
     {
         return 'storage/image/customer/' . $image;
     }
+    public static function getImageCategory($image)
+    {
+        return 'storage/image/category/' . $image;
+    }
 }

@@ -32,4 +32,5 @@ Route::prefix("/customer")->controller(AccountController::class)->group(function
 });
 Route::prefix('/product')->controller(ProductController::class)->group(function () {
     Route::get('/', 'index');
+    Route::get('/product/{id?}', 'showall')->name('product.category');
 });

@@ -1,3 +1,7 @@
+@php
+use App\Config\UrlBase;
+@endphp
+
 <style>
     .select:hover {
         cursor: pointer;
@@ -32,85 +36,33 @@
         <div style=" width:1200px;height:1px;background-color:black;"></div>
     </div>
     <div class="row mt-2 g-4">
-        <div class="col-md-3 select">
-            <div class="card p-1 select ">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
+
+        @foreach ($category as $item)
+        <div class="col-md-3 select" onclick="show()">
+            <form action="{{route('product.category',['id'=>$item->ID])}}" method="get">
+                {{ csrf_field() }}
+                <div class="card p-1 select ">
+                    <div class=" d-flex flex-column justify-content-center p-2">
+                        <div class="d-flex justify-content-center"> <img class="select_image"
+                                style="align-content: center;" src="{{asset(UrlBase::getImageCategory($item->image))}}"
+                                height="100" width="100" />
+                        </div>
+                        <div style="text-align: center;"> <strong>{{$item->name}} </strong> </div>
+                        <div style="height:20px"></div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Xem thêm</button>
+                        </div>
                     </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
                 </div>
-            </div>
+            </form>
+
         </div>
-        <div class="col-md-3 select">
-            <div class="card p-2">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
-                    </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 select">
-            <div class="card p-2">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
-                    </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 select">
-            <div class="card p-2">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
-                    </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 select">
-            <div class="card p-2tr5">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
-                    </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 select">
-            <div class="card p-2">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
-                    </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 select">
-            <div class="card p-2">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
-                    </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 select">
-            <div class="card p-2">
-                <div class=" d-flex flex-column justify-content-center p-2">
-                    <div class="d-flex justify-content-center"> <img class="select_image" style="align-content: center;"
-                            src=" /icon/logo/caffe.png" height="100" width="100" />
-                    </div>
-                    <div style="text-align: center;"> <strong>CAFE </strong> </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
+
     </div>
+    <script>
+        function show(){
+            console.log(1)
+        }
+    </script>
 </div>
