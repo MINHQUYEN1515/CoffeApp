@@ -12,4 +12,8 @@ class UrlBase
     {
         return 'storage/image/category/' . $image;
     }
+    public static function getImageProduct($image)
+    {
+        return 'storage/image/product/images/' . $image;
+    }
 }

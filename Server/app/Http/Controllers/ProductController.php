@@ -15,6 +15,12 @@ class ProductController extends Controller
     }
     public function showall($id = null)
     {
-        dd(Product::where('category_id', $id)->get()->toArray());
+        $product = Category::find($id)->products;
+        return view('product.detail_product', compact('product'));
+    }
+    public function detail($id)
+    {
+        $product = Product::find($id);
+        return view('product.product', compact('product'));
     }
 }

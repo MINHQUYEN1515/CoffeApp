@@ -57,6 +57,8 @@ class AccountController extends Controller
                 $filename = time()  . $request->file('image')->getClientOriginalName();
                 $customer->image = $filename;
                 $request->file('image')->move(base_path('public\storage\image\customer'), $filename);
+            } else {
+                $customer->image = 'user.png';
             }
 
             $customer->save();
@@ -114,22 +116,20 @@ class AccountController extends Controller
         $request->validate([
             'image' => 'required|mimes:jpeg,jpg,png,gif',
         ]);
-        if ($request->has('image')) {
-            try {
-                $user = User::find(Auth::user()->id);
-                $filename = time() . $request->file('image')->getClientOriginalName();
-                $image_path = public_path('storage/image/customer/' . $user->image);
-                if (file_exists($image_path)) {
+        try {
+            $user = User::find(Auth::user()->id);
+            $filename = time() . $request->file('image')->getClientOriginalName();
+            $image_path = public_path('storage/image/customer/' . $user->image);
+            if (file_exists($image_path)) {
 
-                    unlink($image_path);
-                }
-                $request->file('image')->move(base_path('public\storage\image\customer'), $filename);
-                $user->image = $filename;
-                $user->save();
-                return back()->with('successImage', 'update image success! ');
-            } catch (Exception $excetion) {
-                return back()->with('faildImage', 'update image faild!');
+                unlink($image_path);
             }
+            $request->file('image')->move(base_path('public\storage\image\customer'), $filename);
+            $user->image = $filename;
+            $user->save();
+            return back()->with('successImage', 'update image success! ');
+        } catch (Exception $excetion) {
+            return back()->with('faildImage', 'update image faild!');
         }
     }
     public function logout()

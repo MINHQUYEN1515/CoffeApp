@@ -39,8 +39,7 @@ use App\Config\UrlBase;
 
         @foreach ($category as $item)
         <div class="col-md-3 select" onclick="show()">
-            <form action="{{route('product.category',['id'=>$item->ID])}}" method="get">
-                {{ csrf_field() }}
+            <form action="{{route('productCategory',['id'=>$item->ID])}}" method="get">
                 <div class="card p-1 select ">
                     <div class=" d-flex flex-column justify-content-center p-2">
                         <div class="d-flex justify-content-center"> <img class="select_image"
