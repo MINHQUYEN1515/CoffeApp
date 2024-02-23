@@ -105,6 +105,7 @@ class AccountController extends Controller
             $user->email = $request->email;
             $user->phone = $request->phone;
             $user->birthday = $request->birthday;
+            $user->updated_at = now();
             $user->save();
             return back()->with('success', 'change information user success! ');
         } catch (Exception $excetion) {

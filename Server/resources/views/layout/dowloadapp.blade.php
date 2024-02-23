@@ -28,18 +28,18 @@
 
             <div class="text-center">
 
-                <h2 class="text-uppercase">Download App</h2>
+                <h2 class="text-uppercase">@lang('mutilanguage.download')</h2>
 
                 <div class="buttons justify-content-center mt-3">
 
                     <button class="btn btn-dark app-button mb-3 d-flex justify-content-around align-items-center"><img
-                            src="/icon/logo/appstore.jpg" alt="google play" style="width: 30px;height: 30px;"><span
-                            class="text-uppercase ml-2">Apple
+                            src="//upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/512px-App_Store_%28iOS%29.svg.png"
+                            alt="google play" style="width: 30px;height: 30px;"><span class="text-uppercase ml-2">Apple
                             store</span></button>
                     <button class="btn btn-dark app-button d-flex justify-content-around align-items-center"><img
-                            src="/icon/logo/ggplay.png" alt="google play" style="width: 30px;height: 30px;"><span
-                            class="text-uppercase ml-2">Google
-                            store</span></button>
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Play_2022_icon.svg/109px-Google_Play_2022_icon.svg.png"
+                            alt="google play" style="width: 30px;height: 30px;"><span class="text-uppercase ml-2">Google
+                            Play</span></button>
 
                 </div>
 

@@ -49,7 +49,7 @@ use App\Config\UrlBase;
                         <div style="text-align: center;"> <strong>{{$item->name}} </strong> </div>
                         <div style="height:20px"></div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Xem thêm</button>
+                            <button type="submit" class="btn btn-primary">@lang('mutilanguage.see_more')</button>
                         </div>
                     </div>
                 </div>

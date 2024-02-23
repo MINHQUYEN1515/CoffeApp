@@ -21,6 +21,12 @@ class ProductController extends Controller
     public function detail($id)
     {
         $product = Product::find($id);
-        return view('product.product', compact('product'));
+        $list_product = Product::where('category_id', $product->category_id)->get();
+        return view('product.product', compact('product', 'list_product'));
+    }
+    public function addCart(Request $request)
+    {
+
+        return view('product.add_cart');
     }
 }

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('/')->controller(HomeController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index')->name('index');
     Route::get('/setlanguage/{language}', 'setlanguage')->name('setlanguage');
 });
 Route::prefix("/customer")->controller(AccountController::class)->group(function () {
@@ -34,4 +34,6 @@ Route::prefix('/product')->controller(ProductController::class)->group(function 
     Route::get('/', 'index');
     Route::get('/product/{id?}', 'showall')->name('productCategory');
     Route::get('detail/{id?}', 'detail')->name('detailProduct');
+    Route::get('addcart', 'addCart')->name('addCart')->middleware('check.login');
+    Route::post('addcart', 'addCart')->name('addCart')->middleware('check.login');
 });
