@@ -2,12 +2,12 @@
 use App\Config\UrlBase;
 @endphp
 <style>
-    .cart {
+    .cart_header {
         position: relative;
         width: 45px;
     }
 
-    .cart::after {
+    .cart_header::after {
         content: attr(data-value);
         width: 25px;
         height: 25px;
@@ -22,7 +22,7 @@ use App\Config\UrlBase;
         bottom: -6.6px;
     }
 
-    .cart-no::after {
+    .cart_header-no::after {
         content: none;
     }
 </style>
@@ -74,7 +74,7 @@ use App\Config\UrlBase;
                     style="width:50px;height:50px; margin-right: 15px"></a>
             @endif
             <div style="width: 15px;"></div>
-            <div class='cart'>
+            <div class='cart_header'>
 
                 <a href="{{ route('youCart')}}"><img src="/icon/logo/cart.png" alt=""
                         style="width:30px;height:30px"></a>
@@ -116,10 +116,10 @@ use App\Config\UrlBase;
         })
         const quantity={!! json_encode(session('quantity'))!!}
         if(quantity==0){
-            document.querySelector('.cart').classList.add('cart-no')
+            document.querySelector('.cart_header').classList.add('cart-no')
         }
         else{
-            document.querySelector('.cart').setAttribute('data-value', quantity);
+            document.querySelector('.cart_header').setAttribute('data-value', quantity);
         }   
     
 </script>
