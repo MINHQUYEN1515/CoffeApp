@@ -85,14 +85,15 @@ use App\Models\Product;
                     </div>
                 </div>
                 <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
-                    <form action="" method="post">
-                        <input type="hidden" value="{{$item->ID}}">
+                    <form action="{{route('updateCart')}}" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" value="{{$item->ID}}" name='ID'>
                         <div class="form-group mb-2">
                             <label for="quantity1">@lang('mutilanguage.quantity')</label>
-                            <input class="form-control form-control-sm" type="number" id="quantity1"
+                            <input class="form-control form-control-sm" type="number" id="quantity1" name="quantity"
                                 style="text-align: center" value="{{$item->quantity}}">
                         </div>
-                        <button class="btn btn-outline-secondary btn-sm btn-block mb-2" type="button">
+                        <button class="btn btn-outline-secondary btn-sm btn-block mb-2" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-refresh-cw mr-1">
@@ -101,16 +102,21 @@ use App\Models\Product;
                                 <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
                             </svg>@lang('mutilanguage.update_cart')</button>
                     </form>
-                    <button class="btn btn-outline-danger btn-sm btn-block mb-2" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-trash-2 mr-1">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                            </path>
-                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                        </svg>@lang('mutilanguage.remove')</button>
+                    <form action="{{route('removeCart')}}" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" value="{{$item->ID}}" name="ID">
+                        <button class="btn btn-outline-danger btn-sm btn-block mb-2" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-trash-2 mr-1">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                </path>
+                                <line x1="10" y1="11" x2="10" y2="17"></line>
+                                <line x1="14" y1="11" x2="14" y2="17"></line>
+                            </svg>@lang('mutilanguage.remove')</button>
+                    </form>
                 </div>
             </div>
             @endforeach

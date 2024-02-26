@@ -80,4 +80,29 @@ class ProductController extends Controller
             return back()->with('error_add_cart', 'error');
         }
     }
+    public function updateCart(Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            $order = Order::find($request->ID);
+            $price = $order->total / $order->quantity;
+            $order->quantity = $request->quantity;
+            $order->total = $request->quantity * $price;
+            $order->save();
+            DB::commit();
+            return back()->with('success', 'Update success');
+        } catch (\Throwable $error) {
+            DB::rollBack();
+            return back()->with('error', 'Upadate error');
+        }
+    }
+    public function removeCart(Request $request)
+    {
+        try {
+            Order::destroy($request->ID);
+            return back()->with('delete_success', 'Remove success');
+        } catch (\Throwable $error) {
+            return back()->with('delete_error', 'Revome faild');
+        }
+    }
 }

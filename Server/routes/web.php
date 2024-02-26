@@ -38,4 +38,6 @@ Route::prefix('/product')->controller(ProductController::class)->group(function 
     Route::post('addcart', 'addCart')->name('addCart')->middleware('check.login');
     Route::get('youcart', 'youcart')->name('youCart')->middleware('check.login');
     Route::post('youcart', 'storeOrder')->name('storeOrder')->middleware('check.login');
+    Route::post('updatecart', 'updateCart')->name('updateCart');
+    Route::post('removecart', 'removeCart')->name('removeCart');
 });
