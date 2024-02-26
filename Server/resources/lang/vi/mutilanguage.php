@@ -6,7 +6,7 @@ return [
     'service' => 'DỊCH VỤ',
     'browse_category' => 'DANH MỤC ĐỒ UỐNG',
     'add_cart' => 'Thêm vào giỏ hàng',
-    'detail' => 'Xem chi tiết',
+    'buy' => 'Mua ngay',
     'language' => 'Ngôn ngữ',
     'download' => "TẢI XUỐNG",
     'see_more' => 'Xem thêm',
@@ -20,7 +20,16 @@ return [
     'phone' => 'Số điện thoại',
     'address_shipping' => 'Địa chỉ nhận hàng',
     'checkout_continue' => 'Tiếp tục',
-    'you_cart' => 'Giỏ hàng của bạn'
+    'you_cart' => 'Giỏ hàng của bạn',
+    'add_to_cart' => 'Mua hàng',
+    'product_detail' => 'Chi tiết sản phẩm',
+    'close' => 'Đóng',
+    'price' => 'Giá',
+    'quantity' => 'Số lượng',
+    'update_cart' => 'Cập nhật giỏ hàng',
+    'remove' => 'Xóa',
+    'products' => 'Danh sách sản phẩm',
+    'subtotal' => 'Tổng tiền'
 
 
 ];

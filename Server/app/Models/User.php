@@ -33,7 +33,8 @@ class User extends Authenticatable
         'role',
         'birthday',
         'language',
-        'address_shipping'
+        'address_shipping',
+        'order_item_id'
     ];
 
     /**

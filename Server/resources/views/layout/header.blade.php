@@ -1,6 +1,31 @@
 @php
 use App\Config\UrlBase;
 @endphp
+<style>
+    .cart {
+        position: relative;
+        width: 45px;
+    }
+
+    .cart::after {
+        content: attr(data-value);
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background-color: red;
+        display: block;
+        text-align: center;
+        border-radius: 50%;
+        overflow: hidden;
+        right: 0;
+        color: white;
+        bottom: -6.6px;
+    }
+
+    .cart-no::after {
+        content: none;
+    }
+</style>
 <header class=" p-3 mb-3 border-bottom ">
     <div class=" container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -49,9 +74,11 @@ use App\Config\UrlBase;
                     style="width:50px;height:50px; margin-right: 15px"></a>
             @endif
             <div style="width: 15px;"></div>
-            <div>
+            <div class='cart'>
 
-                <a href="#"><img src="/icon/logo/cart.png" alt="" style="width:30px;height:30px"></a>
+                <a href="{{ route('youCart')}}"><img src="/icon/logo/cart.png" alt=""
+                        style="width:30px;height:30px"></a>
+
             </div>
             <div style="width:30px"></div>
             <div class="float-right d-flex justify-content-end">
@@ -87,7 +114,12 @@ use App\Config\UrlBase;
 
             }
         })
-
-   
+        const quantity={!! json_encode(session('quantity'))!!}
+        if(quantity==0){
+            document.querySelector('.cart').classList.add('cart-no')
+        }
+        else{
+            document.querySelector('.cart').setAttribute('data-value', quantity);
+        }   
     
 </script>

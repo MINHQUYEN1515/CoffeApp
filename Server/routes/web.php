@@ -36,4 +36,6 @@ Route::prefix('/product')->controller(ProductController::class)->group(function 
     Route::get('detail/{id?}', 'detail')->name('detailProduct');
     Route::get('addcart', 'addCart')->name('addCart')->middleware('check.login');
     Route::post('addcart', 'addCart')->name('addCart')->middleware('check.login');
+    Route::get('youcart', 'youcart')->name('youCart')->middleware('check.login');
+    Route::post('youcart', 'storeOrder')->name('storeOrder')->middleware('check.login');
 });

@@ -157,11 +157,14 @@ use App\Models\Product;
                                     <p class="about">{{$product->description}}</p>
                                     <div class="sizes mt-5">
                                         <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio"
-                                                name="size" value="S" checked onclick="chooseSize('S')"> <span>S</span>
+                                                name="size" value="price" checked onclick="chooseSize('S')">
+                                            <span>S</span>
                                         </label> <label class="radio">
-                                            <input type="radio" name="size" value="M" onclick="chooseSize('M')">
+                                            <input type="radio" name="size" value="price_sizeM"
+                                                onclick="chooseSize('M')">
                                             <span>M</span> </label> <label class="radio"> <input type="radio"
-                                                name="size" value="L" onclick="chooseSize('L')"> <span>L</span>
+                                                name="size" value="price_sizeL" onclick="chooseSize('L')">
+                                            <span>L</span>
                                         </label>
                                         <div class="input-group d-flex  align-items-center"
                                             style="width: 120px;margin-top: 10px">
@@ -175,8 +178,8 @@ use App\Models\Product;
                                     </div>
 
                                     <div class="cart mt-4 align-items-center"> <button type="submit"
-                                            class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i
-                                            class="fa fa-heart text-muted"></i> <i
+                                            class="btn btn-danger text-uppercase mr-2 px-4">@lang('mutilanguage.add_to_cart')</button>
+                                        <i class="fa fa-heart text-muted"></i> <i
                                             class="fa fa-share-alt text-muted"></i>
                                     </div>
                                 </div>

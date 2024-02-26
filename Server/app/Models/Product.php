@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 class Product extends Model
 {
     use HasFactory;
@@ -20,12 +21,17 @@ class Product extends Model
         'isActice' => 2,
         'out_of_stock' => 3
     ];
+    public const size = [
+        'price' => 'S',
+        'price_sizeL' => 'L',
+        'price_sizeM' => 'M'
+    ];
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
     public function order_items(): HasMany
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(Order::class, 'product_id');
     }
 }
