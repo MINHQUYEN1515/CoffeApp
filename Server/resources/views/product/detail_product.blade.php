@@ -211,10 +211,6 @@ use App\Models\Product;
                         @endif
 
                     </div>
-
-
-
-
                     <div class="" d-flex justify-content-evenly"">
                         <a href="{{route('youCart',['id'=>$item->ID])}}" class="btn btn-primary active" role="button"
                             aria-pressed="true" data-bs-toggle="modal"

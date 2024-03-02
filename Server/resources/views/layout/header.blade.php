@@ -59,7 +59,7 @@ use App\Config\UrlBase;
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="z-index: 100">
                     <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
-                    <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                    <li><a class="dropdown-item" href="{{route('settingAddress')}}">Cài đặt</a></li>
                     <li><a class="dropdown-item" href="{{ route('account-index') }}">Trang cá nhân</a></li>
                     <li>
                         <hr class="dropdown-divider">
@@ -74,12 +74,14 @@ use App\Config\UrlBase;
                     style="width:50px;height:50px; margin-right: 15px"></a>
             @endif
             <div style="width: 15px;"></div>
+            @auth
             <div class='cart_header'>
 
                 <a href="{{ route('youCart')}}"><img src="/icon/logo/cart.png" alt=""
                         style="width:30px;height:30px"></a>
 
             </div>
+            @endauth
             <div style="width:30px"></div>
             <div class="float-right d-flex justify-content-end">
                 <div class="dropdown text-end">
@@ -116,7 +118,7 @@ use App\Config\UrlBase;
         })
         const quantity={!! json_encode(session('quantity'))!!}
         if(quantity==0){
-            document.querySelector('.cart_header').classList.add('cart-no')
+            document.querySelector('.cart_header').classList.add('cart_header-no')
         }
         else{
             document.querySelector('.cart_header').setAttribute('data-value', quantity);

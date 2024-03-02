@@ -108,7 +108,7 @@ use App\Models\Product;
     </style>
     @include('layout.header')
     <div class="container mt-5 mb-5">
-        <form action="{{route('addCart')}}" method="post">
+        <form action="{{route('payment')}}" method="post">
             {{ csrf_field() }}
             <input type="hidden" value="{{$product->ID}}" name="ID">
             <div class="row d-flex justify-content-center">

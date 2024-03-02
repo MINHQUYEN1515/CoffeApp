@@ -26,6 +26,10 @@ class Product extends Model
         'price_sizeL' => 'L',
         'price_sizeM' => 'M'
     ];
+    public const payment = [
+        'cash_on_delivery' => 1,
+        'zalo_pay' => 2
+    ];
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id');

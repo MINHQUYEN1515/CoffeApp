@@ -80,7 +80,8 @@ use App\Models\Product;
                         <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a
                                 href="#">{{Product::find($item->product_id)->name}}</a></h3>
                         <div class="font-size-sm"><span class="text-muted mr-2"></span>Size:{{$item->size}}</div>
-                        <div class="font-size-lg text-primary pt-2">@lang('mutilanguage.price'):{{$item->total}} VND
+                        <div class="font-size-lg text-primary pt-2">
+                            @lang('mutilanguage.price'):{{number_format($item->total,0,'',',')}} VND
                         </div>
                     </div>
                 </div>

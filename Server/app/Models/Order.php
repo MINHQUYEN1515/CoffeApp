@@ -15,7 +15,8 @@ class Order extends Model
     public const Status = [
         'cart' => 1,
         'payment' => 2,
-        'is_active' => 3
+        'inactive' => 3,
+        'process' => 4
     ];
     public $timestamps = false;
     public function product(): HasOne

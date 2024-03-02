@@ -34,10 +34,15 @@ Route::prefix('/product')->controller(ProductController::class)->group(function 
     Route::get('/', 'index');
     Route::get('/product/{id?}', 'showall')->name('productCategory');
     Route::get('detail/{id?}', 'detail')->name('detailProduct');
-    Route::get('addcart', 'addCart')->name('addCart')->middleware('check.login');
-    Route::post('addcart', 'addCart')->name('addCart')->middleware('check.login');
+    Route::get('settingaddress', 'settingAddress')->name('settingAddress')->middleware('check.login');
+    Route::post('updateaddress', 'updateAddress')->name('updateAddress')->middleware('check.login');
     Route::get('youcart', 'youcart')->name('youCart')->middleware('check.login');
     Route::post('youcart', 'storeOrder')->name('storeOrder')->middleware('check.login');
     Route::post('updatecart', 'updateCart')->name('updateCart');
     Route::post('removecart', 'removeCart')->name('removeCart');
+    Route::post('payment', 'payment')->name('payment')->middleware('check.login');
+    Route::get('payment', 'getPayment')->name('getPayment')->middleware('check.login');
+    Route::post('addcart', 'addCart')->name('addCart');
+    Route::post('buytocart', 'buyToCart')->name('buyToCart');
+    Route::get('removebuytocart', 'removeBuyToCart')->name('removeBuyToCart');
 });

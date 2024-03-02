@@ -15,9 +15,7 @@ class HomeController extends Controller
     {
 
         $category = Category::all();
-        $order = Order::count();
-        Session::put('quantity', $order);
-        return view("index", compact('category', 'order'));
+        return view("index", compact('category'));
     }
 
     public function setlanguage($language)

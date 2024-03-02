@@ -59,4 +59,5 @@ return [
             'min' => 'The password must contain at least :min characters.',
         ],
     ],
+    'address_shipping' => 'Address Shipping'
 ];
