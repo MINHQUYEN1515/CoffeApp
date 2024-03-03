@@ -247,11 +247,11 @@ use App\Models\Product;
                     </div>
 
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn btn-primary active" role="button"
+                        <a href="{{route('youCart',['id'=>$item->ID])}}" class="btn btn-primary active" role="button"
                             aria-pressed="true">@lang('mutilanguage.add_cart')</a>
                         <div style="width: 10px;"></div>
                         <a href="{{route('detailProduct',['id'=>$item->ID])}}" class="btn btn-secondary active"
-                            role="button" aria-pressed="true">@lang('mutilanguage.detail')</a>
+                            role="button" aria-pressed="true">@lang('mutilanguage.buy')</a>
                     </div>
 
                 </div>

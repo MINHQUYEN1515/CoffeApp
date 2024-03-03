@@ -29,7 +29,19 @@ return [
     'update_cart' => 'Cập nhật giỏ hàng',
     'remove' => 'Xóa',
     'products' => 'Danh sách sản phẩm',
-    'subtotal' => 'Tổng tiền'
+    'subtotal' => 'Tổng tiền',
+    'product' => 'Sản phẩm',
+    'shipping_address' => 'Địa chỉ nhận hàng',
+    'edit' => 'Cập nhật',
+    'buy_more' => 'Mua thêm',
+    'name' => 'Tên',
+    'total' => 'Tổng cộng',
+    'order_total' => 'Tổng mua hàng',
+    'continue_shop' => 'Tiếp tục chọn hàng',
+    'setting' => 'Cài đặt',
+    'order' => 'Đơn hàng',
+    'profile' => 'Trang cá nhân',
+    'logout' => 'Đăng xuất'
 
 
 ];

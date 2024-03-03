@@ -224,21 +224,30 @@ use App\Models\Product;
         <div class="d-flex justify-content-center">
 
             <div class="d-flex flex-column " style="width: 70%;">
-                <div class="d-flex justify-content-between align-items-center"
-                    style="background-color: #fafafa;height: 50px;">
-                    <div style="padding-left: 10px">Shipping Address</div>
-                    <div style="padding-right: 10px"><a href="#" style="text-decoration: none">edit</a></div>
-                </div>
+                <form action="{{route('settingAddress')}}" method="get">
+                    {{csrf_field()}}
+                    <input type="hidden" value="{{$user->id}}" name="id">
+                    <div class="d-flex justify-content-between align-items-center"
+                        style="background-color: #fafafa;height: 50px;">
+                        <div style="padding-left: 10px">@lang('mutilanguage.shipping_address')</div>
+                        <div style="padding-right: 10px"><button type="submit"
+                                class="btn btn-primary">@lang('mutilanguage.edit')</button>
+                        </div>
+                    </div>
+                </form>
                 <div class="d-flex">
                     <div class="d-flex justify-content-start align-items-center">
-                        <div style="flex: 2; padding-left: 10px">User:</div>
-                        <div><a href="#">Quyền</a></div>
+                        <div style="flex: 2; padding-left: 10px">UserName:</div>
+                        <div><strong>{{$user->username}}</strong></div>
                     </div>
                 </div>
                 <div class="d-flex">
                     <div class="d-flex justify-content-start align-items-center">
-                        <div style="flex: 2;padding-left: 10px">User:</div>
-                        <div><a href="#">Quyền</a></div>
+                        <div style="flex: 2;padding-left: 10px">@lang('mutilanguage.shipping_address'):</div>
+                        <div>
+                            <strong>{{$user->address_shipping}}</strong>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -247,7 +256,8 @@ use App\Models\Product;
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cart_container">
-                        <div class="cart_title">Shopping Cart<small> ({{count($order)}} item in your cart) </small>
+                        <div class="cart_title">@lang('mutilanguage.you_cart')<small> ({{count($order)}}
+                                @lang('mutilanguage.product')) </small>
                         </div>
                         <div class="cart_items">
                             <ul class="cart_list">
@@ -261,29 +271,30 @@ use App\Models\Product;
                                     </div>
                                     <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                         <div class="cart_item_name cart_info_col">
-                                            <div class="cart_item_title">Name
+                                            <div class="cart_item_title">@lang('mutilanguage.name')
                                             </div>
                                             <div class="cart_item_text">{{Product::find($item->product_id)->name}}
                                             </div>
                                         </div>
                                         <div class="cart_item_quantity cart_info_col">
-                                            <div class="cart_item_title">Quantity</div>
+                                            <div class="cart_item_title">@lang('mutilanguage.quantity')</div>
                                             <div class="cart_item_text">{{$item->quantity}}</div>
                                         </div>
                                         <div class="cart_item_price cart_info_col">
-                                            <div class="cart_item_title">Price</div>
+                                            <div class="cart_item_title">@lang('mutilanguage.price')</div>
                                             <div class="cart_item_text">
                                                 {{number_format($item->total/$item->quantity,0,'',',')}}</div>
                                         </div>
                                         <div class="cart_item_total cart_info_col">
-                                            <div class="cart_item_title">Total</div>
+                                            <div class="cart_item_title">@lang('mutilanguage.total')</div>
                                             <div class="cart_item_text">{{number_format($item->total,0,'',',')}}
                                             </div>
                                         </div>
                                         <div class=" d-flex flex-column align-items-end justify-content-evenly"
                                             style="height: 132px">
                                             <a href="{{route('removeBuyToCart',['id'=>$item->ID])}}"
-                                                class="btn btn btn-danger active" aria-pressed="true">Remove</a>
+                                                class="btn btn btn-danger active"
+                                                aria-pressed="true">@lang('mutilanguage.remove')</a>
                                         </div>
                                     </div>
                                 </li>
@@ -293,14 +304,18 @@ use App\Models\Product;
                         </div>
                         <div class="order_total">
                             <div class="order_total_content text-md-right">
-                                <div class="order_total_title">Order Total:</div>
+                                <div class="order_total_title">@lang('mutilanguage.order_total')</div>
                                 <div class="order_total_amount total_order">{{number_format($order_sum,0,'',',')}}
                                     VND</div>
                             </div>
                         </div>
-                        <div class="cart_buttons"> <button type="button" class="button cart_button_clear">Continue
-                                Shopping</button> <button type="button" class="button cart_button_checkout">Add to
-                                Cart</button> </div>
+                        <div class="cart_buttons">
+                            <a href="{{route('index')}}" class="button cart_button_clear"
+                                style="text-decoration: none">@lang('mutilanguage.continue_shop')</a> <a
+                                href="{{route('order'),['list_id'=>]}}" type="button"
+                                class="button cart_button_checkout"
+                                style="text-decoration: none">@lang('mutilanguage.add_to_cart')</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -340,7 +355,7 @@ use App\Models\Product;
                                 @endif
                             </ul>
                             <div class="d-flex justify-content-center" style="margin-bottom: 10px">
-                                <button type="submit" class="btn btn-primary">Mua thêm</button>
+                                <button type="submit" class="btn btn-primary">@lang('mutilanguage.buy_more')</button>
                             </div>
                     </form>
                     <form class="card p-2">

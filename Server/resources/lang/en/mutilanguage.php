@@ -29,6 +29,18 @@ return [
     'update_cart' => 'Update cart',
     'remove' => 'Remove',
     'products' => 'Products',
-    'subtotal' => 'Subtotal'
+    'subtotal' => 'Subtotal',
+    'product' => 'Product',
+    'shipping_address' => 'Shipping Address',
+    'edit' => 'Edit',
+    'buy_more' => 'Buy More',
+    'name' => 'Name',
+    'total' => 'Total',
+    'order_total' => 'Order Total',
+    'continue_shop' => 'Continue Shop',
+    'setting' => 'Setting',
+    'order' => 'Order',
+    'profile' => 'Profile',
+    'logout' => 'Logout'
 
 ];

@@ -58,13 +58,15 @@ use App\Config\UrlBase;
                         height="32" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="z-index: 100">
-                    <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
-                    <li><a class="dropdown-item" href="{{route('settingAddress')}}">Cài đặt</a></li>
-                    <li><a class="dropdown-item" href="{{ route('account-index') }}">Trang cá nhân</a></li>
+                    <li><a class="dropdown-item" href="#">@lang('mutilanguage.order')</a></li>
+                    <li><a class="dropdown-item" href="{{route('settingAddress')}}">@lang('mutilanguage.setting')</a>
+                    </li>
+                    <li><a class="dropdown-item" href="{{ route('account-index') }}">@lang('mutilanguage.profile')</a>
+                    </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="{{route('logout')}}">Thoát</a></li>
+                    <li><a class="dropdown-item" href="{{route('logout')}}">@lang('mutilanguage.logout')</a></li>
                 </ul>
 
             </div>

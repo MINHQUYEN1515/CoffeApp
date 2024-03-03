@@ -198,4 +198,8 @@ class ProductController extends Controller
         Order::destroy($request->id);
         return redirect()->route('getPayment');
     }
+    public function editAddressShipping(Request $request)
+    {
+        dd($request->toArray());
+    }
 }
