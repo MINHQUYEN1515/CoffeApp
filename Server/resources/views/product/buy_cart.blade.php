@@ -218,110 +218,146 @@ use App\Models\Product;
         cursor: pointer;
         vertical-align: top
     }
+
+    @media (max-width: 767px) {
+        #you_cart {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center
+        }
+
+        #cart_item {
+            width: 80%;
+        }
+
+    }
+
+    @media (min-width: 767px) {
+        #cart_item {
+            width: 23%;
+            height: 30%;
+        }
+    }
 </style>
-<div class="d-flex">
+<div class="d-flex flex-wrap justify-content-evenly" id="you_cart">
     <div class="cart_section p-2 w-75 bd-highlight">
         <div class="d-flex justify-content-center">
 
-            <div class="d-flex flex-column " style="width: 70%;">
+            <div class="d-flex flex-column " style="width: 80%;">
                 <form action="{{route('settingAddress')}}" method="get">
                     {{csrf_field()}}
                     <input type="hidden" value="{{$user->id}}" name="id">
-                    <div class="d-flex justify-content-between align-items-center"
-                        style="background-color: #fafafa;height: 50px;">
-                        <div style="padding-left: 10px">@lang('mutilanguage.shipping_address')</div>
-                        <div style="padding-right: 10px"><button type="submit"
-                                class="btn btn-primary">@lang('mutilanguage.edit')</button>
+                    <div class="d-flex flex-column justify-content-between  w-100" style="background-color: #fafafa;">
+                        <div class="d-flex  justify-content-between align-items-center" style="margin-top: 2%">
+                            <div style="padding-left: 5%">@lang('mutilanguage.shipping_address')</div>
+                            <button type="submit" style="margin-right: 5%"
+                                class="btn btn-primary ">@lang('mutilanguage.edit')</button>
                         </div>
-                    </div>
-                </form>
-                <div class="d-flex">
-                    <div class="d-flex justify-content-start align-items-center">
-                        <div style="flex: 2; padding-left: 10px">UserName:</div>
-                        <div><strong>{{$user->username}}</strong></div>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <div class="d-flex justify-content-start align-items-center">
-                        <div style="flex: 2;padding-left: 10px">@lang('mutilanguage.shipping_address'):</div>
-                        <div>
-                            <strong>{{$user->address_shipping}}</strong>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid ">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="cart_container">
-                        <div class="cart_title">@lang('mutilanguage.you_cart')<small> ({{count($order)}}
-                                @lang('mutilanguage.product')) </small>
-                        </div>
-                        <div class="cart_items">
-                            <ul class="cart_list">
-                                @if(empty($order))
-                                @else
-                                @foreach($order as $item)
-                                <li class="cart_item clearfix">
-                                    <div class="cart_item_image"><img
-                                            src="{{asset(UrlBase::getImageProduct(Product::find($item->product_id)->image))}}"
-                                            alt="">
-                                    </div>
-                                    <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                                        <div class="cart_item_name cart_info_col">
-                                            <div class="cart_item_title">@lang('mutilanguage.name')
-                                            </div>
-                                            <div class="cart_item_text">{{Product::find($item->product_id)->name}}
-                                            </div>
-                                        </div>
-                                        <div class="cart_item_quantity cart_info_col">
-                                            <div class="cart_item_title">@lang('mutilanguage.quantity')</div>
-                                            <div class="cart_item_text">{{$item->quantity}}</div>
-                                        </div>
-                                        <div class="cart_item_price cart_info_col">
-                                            <div class="cart_item_title">@lang('mutilanguage.price')</div>
-                                            <div class="cart_item_text">
-                                                {{number_format($item->total/$item->quantity,0,'',',')}}</div>
-                                        </div>
-                                        <div class="cart_item_total cart_info_col">
-                                            <div class="cart_item_title">@lang('mutilanguage.total')</div>
-                                            <div class="cart_item_text">{{number_format($item->total,0,'',',')}}
-                                            </div>
-                                        </div>
-                                        <div class=" d-flex flex-column align-items-end justify-content-evenly"
-                                            style="height: 132px">
-                                            <a href="{{route('removeBuyToCart',['id'=>$item->ID])}}"
-                                                class="btn btn btn-danger active"
-                                                aria-pressed="true">@lang('mutilanguage.remove')</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                                @endif
-                            </ul>
-                        </div>
-                        <div class="order_total">
-                            <div class="order_total_content text-md-right">
-                                <div class="order_total_title">@lang('mutilanguage.order_total')</div>
-                                <div class="order_total_amount total_order">{{number_format($order_sum,0,'',',')}}
-                                    VND</div>
+                        <div class="d-flex justify-content-start">
+                            <div class="d-flex bd-highlight">
+                                <div style="padding-left: 5%" class="p-2 flex-fill bd-highlight">UserName:</div>
+                                <div class="p-2 flex-fill bd-highlight"><strong>{{$user->username}}</strong></div>
                             </div>
                         </div>
-                        <div class="cart_buttons">
-                            <a href="{{route('index')}}" class="button cart_button_clear"
-                                style="text-decoration: none">@lang('mutilanguage.continue_shop')</a> <a
-                                href="{{route('order'),['list_id'=>]}}" type="button"
-                                class="button cart_button_checkout"
-                                style="text-decoration: none">@lang('mutilanguage.add_to_cart')</a>
+                        <div class="d-flex justify-content-start">
+                            <div class="d-flex bd-highlight">
+                                <div style="padding-left: 5%" class="p-2 flex-fill bd-highlight">
+                                    @lang('mutilanguage.shipping_address'):</div>
+                                <div class="p-2 flex-fill bd-highlight">
+                                    <strong>{{$user->address_shipping}}</strong>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly">
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="cart_container">
+                            <div class="cart_title">@lang('mutilanguage.you_cart')<small> ({{count($order)}}
+                                    @lang('mutilanguage.product')) </small>
+                            </div>
+                            <div class="cart_items">
+                                <ul class="cart_list">
+                                    @if(empty($order))
+                                    @else
+                                    @foreach($order as $item)
+                                    <li class="cart_item clearfix w-100">
+                                        <div class="d-flex flex-wrap justify-content-between">
+                                            <div class="flex-shrink-0"><img
+                                                    src="{{asset(UrlBase::getImageProduct(Product::find($item->product_id)->image))}}"
+                                                    alt="">
+                                            </div>
+
+                                            <div
+                                                class="d-flex flex-column flex-wrap align-content-between  justify-content-evenly">
+                                                <div class=""><strong>@lang('mutilanguage.name')</strong>
+                                                </div>
+                                                <div class="">
+                                                    {{Product::find($item->product_id)->name}}
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column flex-wrap align-content-between  justify-content-evenly">
+                                                <div class=""><strong>@lang('mutilanguage.quantity')</strong></div>
+                                                <div class="">{{$item->quantity}}</div>
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column flex-wrap align-content-between justify-content-evenly">
+                                                <div class=""><strong>@lang('mutilanguage.price')</strong></div>
+                                                <div class="">
+                                                    {{number_format($item->total/$item->quantity,0,'',',')}}</div>
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column flex-wrap align-content-between  justify-content-evenly">
+                                                <div class=""><strong>@lang('mutilanguage.total')</strong></div>
+                                                <div class="">{{number_format($item->total,0,'',',')}}
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column flex-wrap align-content-between  justify-content-evenly">
+                                                <a href="{{route('removeBuyToCart',['id'=>$item->ID])}}"
+                                                    class="btn btn btn-danger active"
+                                                    aria-pressed="true">@lang('mutilanguage.remove')</a>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                    @endif
+                                </ul>
+                            </div>
+                            <div class="order_total">
+                                <div class="order_total_content text-md-right">
+                                    <div class="order_total_title">@lang('mutilanguage.order_total')</div>
+                                    <div class="order_total_amount total_order">{{number_format($order_sum,0,'',',')}}
+                                        VND</div>
+                                </div>
+                            </div>
+                            <div class="cart_buttons d-flex flex-wrap align-items-center justify-content-center"
+                                id="button_order">
+                                <a href="{{route('index')}}" class="button cart_button_clear"
+                                    style="text-decoration: none">@lang('mutilanguage.continue_shop')</a> <a
+                                    href="{{route('order')}}" type="button" class="button cart_button_checkout"
+                                    style="text-decoration: none">@lang('mutilanguage.add_to_cart')</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
-    <div class="card p-2 flex-shrink-2 bd-highlight" style="width: 23%; height: 30%;">
+    <div class="card " style="" id="cart_item">
         <div class="container">
             <main>
                 <div>
@@ -365,8 +401,9 @@ use App\Models\Product;
                         </div>
                     </form>
                 </div>
+            </main>
         </div>
-        </main>
+
     </div>
 
 </div>

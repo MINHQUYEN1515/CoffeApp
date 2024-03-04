@@ -396,7 +396,12 @@
             padding: 0 11px;
         }
 
-        .form-group,
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+
         .form-radio {
             position: relative;
         }
@@ -899,11 +904,12 @@
                             {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
                             <p class="help is-danger">{{ $errors->first('g-recaptcha-response') }}</p>
                         </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Submit" />
+                        </div>
                 </div>
 
-                <div class="form-group">
-                    <input type="submit" name="submit" id="submit" class="form-submit" value="Submit" />
-                </div>
+
                 </form>
             </div>
             {{-- sign in --}}
