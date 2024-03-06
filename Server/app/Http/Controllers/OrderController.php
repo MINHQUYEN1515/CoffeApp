@@ -8,6 +8,6 @@ class OrderController extends Controller
 {
     public function order(Request $request)
     {
-        dd($request->toArray());
+        return view('cart.order');
     }
 }
