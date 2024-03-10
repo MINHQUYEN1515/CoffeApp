@@ -46,9 +46,8 @@ Route::prefix('/product')->controller(ProductController::class)->group(function 
     Route::post('addcart', 'addCart')->name('addCart');
     Route::post('buytocart', 'buyToCart')->name('buyToCart');
     Route::get('removebuytocart', 'removeBuyToCart')->name('removeBuyToCart');
-    Route::post('editaddressshipping', 'editAddressShipping')->name('editAddressShipping');
-
-    Route::prefix('/')->middleware('auth')->controller(OrderController::class)->group(function () {
-        Route::get('order', 'order')->name('order');
-    });
+});
+Route::prefix('/')->controller(OrderController::class)->group(function () {
+    Route::get('order', 'order')->name('order');
+    Route::get('userorder', 'userOrder')->name('userOrder');
 });

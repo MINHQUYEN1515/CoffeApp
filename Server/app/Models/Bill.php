@@ -17,11 +17,17 @@ class Bill extends Model
         'shipper_comment_id',
         'user_id',
         'payment',
-        'money_ship'
+        'money_ship',
+        'address'
+    ];
+    public const Status = [
+        'active' => 1,
+        'inactive' => 2
     ];
     protected $table = 'bill';
     protected $primaryKey = 'ID';
     public $timestamps = false;
+
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);

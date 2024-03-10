@@ -41,6 +41,8 @@ return [
     'setting' => 'Setting',
     'order' => 'Order',
     'profile' => 'Profile',
-    'logout' => 'Logout'
+    'logout' => 'Logout',
+    'buysuccess' => 'Buy Success',
+    'buyfaild' => 'But Faild'
 
 ];

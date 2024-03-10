@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
 use App\Models\Category;
 use App\Models\Product;
 
@@ -197,9 +198,5 @@ class ProductController extends Controller
     {
         Order::destroy($request->id);
         return redirect()->route('getPayment');
-    }
-    public function editAddressShipping(Request $request)
-    {
-        dd($request->toArray());
     }
 }

@@ -240,6 +240,41 @@ use App\Models\Product;
         }
     }
 </style>
+@if(session("buySuccess"))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>@lang('mutilanguage.buysuccess')</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<script>
+    const close=document.querySelector('.close')
+    const alert=document.querySelector('.alert-success')
+    console.log(close)
+    close.addEventListener('click',function(){
+        alert.remove()
+    })
+    
+</script>
+@endif
+@if(session("error"))
+<div class="alert alert-waring alert-dismissible fade show" role="alert">
+    <strong>@lang('mutilanguage.buyfaild')</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<script>
+    const close=document.querySelector('.close')
+    const alert=document.querySelector('.alert-success')
+    console.log(close)
+    close.addEventListener('click',function(){
+        alert.remove()
+        console.log(1)
+    })
+    
+</script>
+@endif
 <div class="d-flex flex-wrap justify-content-evenly" id="you_cart">
     <div class="cart_section p-2 w-75 bd-highlight">
         <div class="d-flex justify-content-center">

@@ -41,7 +41,9 @@ return [
     'setting' => 'Cài đặt',
     'order' => 'Đơn hàng',
     'profile' => 'Trang cá nhân',
-    'logout' => 'Đăng xuất'
+    'logout' => 'Đăng xuất',
+    'buysuccess' => 'Mua hàng thành công',
+    'buyfaild' => 'Mua hàng thất bại'
 
 
 ];
