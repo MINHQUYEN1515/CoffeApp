@@ -14,7 +14,7 @@ use App\Models\Order;
     <div class="d-flex flex-column flex-wrap-reverse">
         <h3>THÔNG TIN ĐƠN HÀNG</h3>
         <p>Mã đơn hàng của bạn: {{$item->ID}}</p>
-        <p>Ngày đặt: {{$item->createDay}}</p>
+        <p>Ngày đặt: {{date('d-m-Y ', strtotime($item->createDay))}}</p>
         <p>Phương thức thanh toán: {{$item->payment==1?"Thanh toán khi nhận hàng (COD)":"Thanh toán online"}}</p>
         <table class="table">
             <thead>
@@ -27,21 +27,21 @@ use App\Models\Order;
                 </tr>
             </thead>
             <tbody>
-                @foreach (Order::where(['bill_id'=>$item->ID])->get() as $item)
+                @foreach (Order::where(['bill_id'=>$item->ID])->get() as $item1)
                 <tr style="width: 100%;">
-                    <td style="word-break:break-all;">{{Product::find($item->product_id)->name}}</td>
+                    <td style="word-break:break-all;">{{Product::find($item1->product_id)->name}}</td>
                     <td style="word-break:break-all;"><img
-                            src="{{asset(UrlBase::getImageProduct(Product::find($item->product_id)->image))}}"
+                            src="{{asset(UrlBase::getImageProduct(Product::find($item1->product_id)->image))}}"
                             class="img-fluid" alt="" srcset="" style="width: 150; height: 100px;"></td>
-                    <td style="word-break:break-all;">{{$item->total/$item->quantity}}₫</td>
-                    <td style="word-break:break-all;">{{$item->quantity}}</td>
-                    <td style="word-break:break-all;">{{$item->total}}₫</td>
+                    <td style="word-break:break-all;">{{number_format($item1->total/$item1->quantity,0,'',',')}}₫</td>
+                    <td style="word-break:break-all;">{{number_format($item1->quantity,0,'',',')}}</td>
+                    <td style="word-break:break-all;">{{number_format($item1->total,0,'',',')}}₫</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <p>PHÍ VẬN CHUYỂN:{{$item->money_ship}} đ</p>
-        <p>TỔNG THÀNH TOÁN: {{number_format($item->total,0,'',',')}}đ</p>
+        <strong>PHÍ VẬN CHUYỂN:{{number_format($item->money_ship,0,'',',')}} đ</strong>
+        <strong>TỔNG THÀNH TOÁN: {{number_format($item->total+$item->money_ship,0,'',',')}}đ</strong>
         </form>
         <hr>
     </div>
