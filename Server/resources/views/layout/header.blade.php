@@ -26,6 +26,7 @@ use App\Config\UrlBase;
         content: none;
     }
 </style>
+@include('layout.loading')
 <header class=" p-3 mb-3 border-bottom ">
     <div class=" container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -58,7 +59,7 @@ use App\Config\UrlBase;
                         height="32" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="z-index: 100">
-                    <li><a class="dropdown-item" href="#">@lang('mutilanguage.order')</a></li>
+                    <li><a class="dropdown-item" href="{{route('userOrder')}}">@lang('mutilanguage.order')</a></li>
                     <li><a class="dropdown-item" href="{{route('settingAddress')}}">@lang('mutilanguage.setting')</a>
                     </li>
                     <li><a class="dropdown-item" href="{{ route('account-index') }}">@lang('mutilanguage.profile')</a>

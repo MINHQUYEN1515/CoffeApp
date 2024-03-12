@@ -43,6 +43,12 @@ return [
     'profile' => 'Profile',
     'logout' => 'Logout',
     'buysuccess' => 'Buy Success',
-    'buyfaild' => 'But Faild'
+    'buyfaild' => 'But Faild',
+    'list_bill' => 'List Bill',
+    'info_order' => 'Information Order',
+    'code' => 'Code',
+    'booking_date' => 'Booking date',
+    'payment' => 'Payment',
+    'image' => 'Image'
 
 ];

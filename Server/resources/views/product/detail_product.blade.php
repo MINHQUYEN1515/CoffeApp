@@ -98,9 +98,7 @@ use App\Models\Product;
 @include('layout.header')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @if(session('add_cart_success'))
-<script>
-    alert('Đã thêm sản phẩm vào giỏ hàng')
-</script>
+
 @endif
 @if(session('error_add_cart'))
 <h1>error</h1>
