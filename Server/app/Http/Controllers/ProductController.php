@@ -67,10 +67,13 @@ class ProductController extends Controller
     {
         $user_id = auth()->user()->id;
         $list_order = Order::where([
-            'user_id' => auth()->user()->id,
+            'user_id' => $user_id,
             'status' => Order::Status['cart'],
         ])->get();
-        $subtotal = Order::where('user_id', $user_id)->sum('total');
+        $subtotal = Order::where([
+            'user_id' => $user_id,
+            'status' => Order::Status['cart'],
+        ])->sum('total');
         return view('product.you_cart', compact('list_order', 'subtotal'));
     }
     public function storeOrder(Request $request)
