@@ -8,6 +8,10 @@ class UrlBase
     {
         return 'storage/image/customer/' . $image;
     }
+    public static function getImageAdmin($image)
+    {
+        return 'storage/image/admin/' . $image;
+    }
     public static function getImageCategory($image)
     {
         return 'storage/image/category/' . $image;
@@ -15,5 +19,9 @@ class UrlBase
     public static function getImageProduct($image)
     {
         return 'storage/image/product/images/' . $image;
+    }
+    public static function adminCss()
+    {
+        return 'styles/css/admin.css';
     }
 }

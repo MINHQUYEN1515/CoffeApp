@@ -80,7 +80,10 @@ class AccountController extends Controller
 
 
         if (Auth::attempt($user)) {
-            $request->session()->regenerate();
+            $users = auth()->user();
+            if ($users->role == User::ROLE['admin']) {
+                return redirect()->route('indexAdmin');
+            }
             return redirect()->route('account-index');
         }
 

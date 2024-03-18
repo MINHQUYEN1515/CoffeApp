@@ -43,7 +43,8 @@ return [
     'profile' => 'Trang cá nhân',
     'logout' => 'Đăng xuất',
     'buysuccess' => 'Mua hàng thành công',
-    'buyfaild' => 'Mua hàng thất bại'
+    'buyfaild' => 'Mua hàng thất bại',
+    'no_data' => 'Không có dữ liệu'
 
 
 ];

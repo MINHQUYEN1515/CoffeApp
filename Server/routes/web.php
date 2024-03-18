@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -50,4 +51,7 @@ Route::prefix('/product')->controller(ProductController::class)->group(function 
 Route::prefix('/')->controller(OrderController::class)->group(function () {
     Route::get('order', 'order')->name('order');
     Route::get('userorder', 'userOrder')->name('userOrder');
+});
+Route::prefix('')->controller(AdminController::class)->group(function () {
+    Route::get('admin', 'index')->name('indexAdmin');
 });

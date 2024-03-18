@@ -105,8 +105,12 @@ use App\Models\Product;
 @endif
 <section style="background-color: #eee;">
     <div class="text-center container py-5">
-        <h4 class="mt-4 mb-5"><strong>{{Category::find($product[0]->category_id)->name}}</strong></h4>
+        <h4 class="mt-4 mb-5">
+            <strong>{{empty($product)?Category::find($product[0]->category_id)->name:__("mutilanguage.no_data")}}</strong>
+        </h4>
         <div class="row">
+            @if(empty($product))
+            @else
             @foreach ($product as $item)
             @if($item->number==0)
             <div class="col-lg-4 col-md-12 mb-4  prevent-select" style="opacity: 0.4;">
@@ -323,6 +327,7 @@ use App\Models\Product;
         </div>
         @endif
         @endforeach
+        @endif
     </div>
     </div>
 

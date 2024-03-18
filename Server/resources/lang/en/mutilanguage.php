@@ -49,6 +49,7 @@ return [
     'code' => 'Code',
     'booking_date' => 'Booking date',
     'payment' => 'Payment',
-    'image' => 'Image'
+    'image' => 'Image',
+    'no_data' => "No data"
 
 ];
