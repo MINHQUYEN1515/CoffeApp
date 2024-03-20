@@ -1,0 +1,13 @@
+.add_employee::after {
+    content: attr(data-error);
+    color: red;
+
+}
+
+.add_employee[data-error]>input {
+    border-color: red;
+}
+
+.add_employee[data-error]>textarea {
+    border-color: red;
+}

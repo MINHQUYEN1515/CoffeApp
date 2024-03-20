@@ -108,6 +108,10 @@ ol {
     list-style: none;
 }
 
+li {
+    margin-left: 15px;
+}
+
 a,
 a:hover,
 a:focus {

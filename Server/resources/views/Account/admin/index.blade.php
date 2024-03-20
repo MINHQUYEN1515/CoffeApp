@@ -14,7 +14,17 @@ use App\Config\UrlBase;
     <!-- Bootstrap CSS -->
     <!----css3---->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="{{asset(UrlBase::adminCss())}}">
+    <link rel="stylesheet" href="{{asset(UrlBase::customerCss())}}">
 
 
     <!--google fonts -->
@@ -25,7 +35,6 @@ use App\Config\UrlBase;
 
     <!--google material icon-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-
 </head>
 
 <body>
@@ -37,109 +46,7 @@ use App\Config\UrlBase;
         <div class="body-overlay"></div>
 
         <!-------sidebar--design------------>
-
-        <div id="sidebar">
-            <div class="sidebar-header">
-                <h3><img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/White_logo800.png"
-                        style="background-color: #b22830;width= 50; height=50" class=" img-fluid rounded-circle"
-                        class="" /><span>Highland Admin</span></h3>
-            </div>
-            <ul class="list-unstyled component m-0">
-                <li class="active">
-                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i>dashboard </a>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Layouts
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="#">layout 1</a></li>
-                        <li><a href="#">layout 2</a></li>
-                        <li><a href="#">layout 3</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">apps</i>widgets
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu2">
-                        <li><a href="#">Apps 1</a></li>
-                        <li><a href="#">Apps 2</a></li>
-                        <li><a href="#">Apps 3</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">equalizer</i>charts
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu3">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">extension</i>UI Element
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu4">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">border_color</i>forms
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">grid_on</i>tables
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-                        <li><a href="#">table 1</a></li>
-                        <li><a href="#">table 2</a></li>
-                        <li><a href="#">table 3</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">content_copy</i>Pages
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="">
-                    <a href="#" class=""><i class="material-icons">date_range</i>copy </a>
-                </li>
-                <li class="">
-                    <a href="#" class=""><i class="material-icons">library_books</i>calender </a>
-                </li>
-
-            </ul>
-        </div>
-
+        @include('Account.admin.admin_layout.sidebar')
         <!-------sidebar--design- close----------->
 
 
@@ -149,96 +56,8 @@ use App\Config\UrlBase;
         <div id="content">
 
             <!------top-navbar-start----------->
+            @include('Account.admin.admin_layout.header')
 
-            <div class="top-navbar">
-                <div class="xd-topbar">
-                    <div class="row">
-                        <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
-                            <div class="xp-menubar">
-                                <span class="material-icons text-white">signal_cellular_alt</span>
-                            </div>
-                        </div>
-
-                        <div class="col-md-5 col-lg-3 order-3 order-md-2">
-                            <div class="xp-searchbar">
-                                <form>
-                                    <div class="input-group">
-                                        <input type="search" class="form-control" placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button class="btn" type="submit" id="button-addon2">Go
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-
-                        <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
-                            <div class="xp-profilebar text-right">
-                                <nav class="navbar p-0">
-                                    <ul class="nav navbar-nav flex-row ml-auto">
-                                        <li class="dropdown nav-item active">
-                                            <a class="nav-link" href="#" data-toggle="dropdown">
-                                                <span class="material-icons">notifications</span>
-                                                <span class="notification">4</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">
-                                                <span class="material-icons">question_answer</span>
-                                            </a>
-                                        </li>
-
-                                        <li class="dropdown nav-item">
-                                            <a class="nav-link" href="#" data-toggle="dropdown">
-                                                <img src="{{UrlBase::getImageAdmin($user->image)}}"
-                                                    style="width:40px; border-radius:50%;" />
-                                                <span class="xp-user-live"></span>
-                                            </a>
-                                            <ul class="dropdown-menu small-menu">
-                                                <li><a href="#">
-                                                        <span class="material-icons">person_outline</span>
-                                                        Profile
-                                                    </a></li>
-                                                <li><a href="#">
-                                                        <span class="material-icons">settings</span>
-                                                        Settings
-                                                    </a></li>
-                                                <li><a href="#">
-                                                        <span class="material-icons">logout</span>
-                                                        Logout
-                                                    </a></li>
-
-                                            </ul>
-                                        </li>
-
-
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="xp-breadcrumbbar text-center">
-                        <h4 class="page-title">Dashboard</h4>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Vishweb</a></li>
-                            <li class="breadcrumb-item active" aria-curent="page">Dashboard</li>
-                        </ol>
-                    </div>
-
-
-                </div>
-            </div>
             <!------top-navbar-end----------->
 
 
@@ -276,20 +95,26 @@ use App\Config\UrlBase;
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Address</th>
+                                        <th>Active</th>
                                         <th>Phone</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
+                                    @if(empty($list_manager))
+                                    @else
+                                    @foreach($list_manager as $item)
                                     <tr>
                                         <th><span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                                                <input type="checkbox" class="checkbox_item" name="option[]"
+                                                    value="{{$item->id}}">
                                                 <label for="checkbox1"></label></th>
-                                        <th>Thomas Hardy</th>
-                                        <th>ThomasHardy@gmail.com</th>
-                                        <th>90r parkdground poland Usa.</th>
-                                        <th>(78-582552-9)</th>
+                                        <th>{{$item->username}}</th>
+                                        <th>{{$item->email}}</th>
+                                        <th>{{$item->address}}</th>
+                                        <th>{{$item->status==1? "Đang hoạt động":"Ngừng hoạt động"}}</th>
+                                        <th>{{$item->phone}}</th>
                                         <th>
                                             <a href="#editEmployeeModal" class="edit" data-toggle="modal">
                                                 <i class="material-icons" data-toggle="tooltip"
@@ -301,88 +126,11 @@ use App\Config\UrlBase;
                                             </a>
                                         </th>
                                     </tr>
+                                    @endforeach
+                                    @endif
 
 
-                                    <tr>
-                                        <th><span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox2" name="option[]" value="1">
-                                                <label for="checkbox2"></label></th>
-                                        <th>Dominique Perrier</th>
-                                        <th>dominiquePerrier@gmail.com</th>
-                                        <th>90r ser57, Berlin poland Bermany.</th>
-                                        <th>(78-5235-2-9)</th>
-                                        <th>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Edit">&#xE254;</i>
-                                            </a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Delete">&#xE872;</i>
-                                            </a>
-                                        </th>
-                                    </tr>
 
-
-                                    <tr>
-                                        <th><span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox3" name="option[]" value="1">
-                                                <label for="checkbox3"></label></th>
-                                        <th>Marai Andres</th>
-                                        <th>MarariAndres@gmail.com</th>
-                                        <th>90r ser57, Berlin poland Bermany.</th>
-                                        <th>(78-239-669)</th>
-                                        <th>
-                                            <a href="#edit" class="edit" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Edit">&#xE254;</i>
-                                            </a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Delete">&#xE872;</i>
-                                            </a>
-                                        </th>
-                                    </tr>
-
-                                    <tr>
-                                        <th><span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox4" name="option[]" value="1">
-                                                <label for="checkbox4"></label></th>
-                                        <th>Vishweb Design</th>
-                                        <th>vishwebdesign@gmail.com</th>
-                                        <th> B-2 ser57 Nodia East Delhi,India.</th>
-                                        <th>(78-239-669)</th>
-                                        <th>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Edit">&#xE254;</i>
-                                            </a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Delete">&#xE872;</i>
-                                            </a>
-                                        </th>
-                                    </tr>
-
-                                    <tr>
-                                        <th><span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox5" name="option[]" value="1">
-                                                <label for="checkbox5"></label></th>
-                                        <th>Vishwajeet Kumar</th>
-                                        <th>vishkumar234@gmail.com</th>
-                                        <th> B-2 ser57 Nodia East Delhi,India.</th>
-                                        <th>(78-555-229)</th>
-                                        <th>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Edit">&#xE254;</i>
-                                            </a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                <i class="material-icons" data-toggle="tooltip"
-                                                    title="Delete">&#xE872;</i>
-                                            </a>
-                                        </th>
-                                    </tr>
 
                                 </tbody>
 
@@ -424,27 +172,36 @@ use App\Config\UrlBase;
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                <input id="add_member-token" name="_token" type="hidden" value="{{csrf_token()}}">
                                 <div class="modal-body">
-                                    <div class="form-group">
+                                    <div class="form-group add_employee">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control add_name " required name="name">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group add_employee">
                                         <label>Email</label>
-                                        <input type="emil" class="form-control" required>
+                                        <input type="emil" class="form-control add_email " required name="email">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group add_employee">
                                         <label>Address</label>
-                                        <textarea class="form-control" required></textarea>
+                                        <textarea class="form-control add_address " required name="address"></textarea>
+                                    </div>
+                                    <div class="form-group add_employee">
+                                        <label>Phone</label>
+                                        <input type="text" class="form-control add_phone " name="phone" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone</label>
-                                        <input type="text" class="form-control" required>
+                                        <label>Status</label>
+                                        <select class="form-select form-select-lg mb-3"
+                                            aria-label=".form-select-lg example" id="add_status">
+                                            <option value="1" selected>Active</option>
+                                            <option value="2">Is Active</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-success">Add</button>
+                                    <button type="button" class="btn btn-success btn-add-member">Add</button>
                                 </div>
                             </div>
                         </div>
@@ -482,6 +239,14 @@ use App\Config\UrlBase;
                                     <div class="form-group">
                                         <label>Phone</label>
                                         <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-select form-select-lg mb-3"
+                                            aria-label=".form-select-lg example">
+                                            <option value="1" selected>Active</option>
+                                            <option value="2">Is Active</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -541,7 +306,6 @@ use App\Config\UrlBase;
 
 
 
-
         </div>
 
     </div>
@@ -558,6 +322,24 @@ use App\Config\UrlBase;
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
+        integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css"
+        integrity="sha512-8D+M+7Y6jVsEa7RD6Kv/Z7EImSpNpQllgaEIQAtqHcI0H6F4iZknRj0Nx1DCdB+TwBaS+702BGWYC0Ze2hpExQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"
+        integrity="sha512-Y+cHVeYzi7pamIOGBwYHrynWWTKImI9G78i53+azDb1uPmU1Dz9/r2BLxGXWgOC7FhwAGsy3/9YpNYaoBy7Kzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+        integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easy-loading/1.3.0/jquery.loading.min.js"
+        integrity="sha512-tKLMM/v1nsieFOgUyeMSC2jdB4UtbU7R88e+S0pVIz3f6sWdpOpirG2j5pulmH45l1vk47J84V4ifXAYv+wuMw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easy-loading/1.3.0/jquery.loading.js"
+        integrity="sha512-l9jYjbia7nXf4ZpR3dFSAjOOygUAytRrqmT32a5cBZjVpIUdFgBzIPQPPhJ6gh/NwaIerUEsn3vkEVQzQExGag=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
         $(document).ready(function(){
 	      $(".xp-menubar").on('click',function(){
@@ -570,6 +352,75 @@ use App\Config\UrlBase;
 		  });
 		  
 	   });
+       $('#selectAll').change(function(){
+        var checkboxes = $(this).closest('table').find(':checkbox');
+        checkboxes.prop('checked', $(this).is(':checked'));
+       })
+
+    //---------------------- Add manager-------------------------------//
+    $('.main-content').loading({
+    overlay: $("#custom-overlay")
+    });
+    $.ajaxSetup({
+        headers: {
+        'X-CSRF-TOKEN':$('#add_member-token').val()
+        },
+    })
+    //////////////////////////////////////
+    $('.btn-add-member').click(function(){
+    name=$(".add_name").val()
+    email=$(".add_email").val()
+    address=$('.add_address').val()
+    phone=$('.add_phone').val()
+    status=$('#add_status option:selected').val()
+    $.ajax({
+    type:"POST",
+    url:"{{route('addMember')}}",
+    dataType:'json',
+    data:{
+        _token:$('.add_member-token').val(),
+        name:name,
+        email:email,
+        address:address,
+        phone:phone,
+        status:status
+    },
+    beforeSend: function() {
+     
+    },
+    success:function(data){
+   $.toast({
+        heading: 'Success',
+        text: data.message,
+        showHideTransition: 'slide',
+        icon: 'success'
+        })
+    },
+    error:function(xhr,stt,err){
+        for (const key in xhr.responseJSON.errors) {
+           const input= document.querySelector(`input[name=${key}],textarea[name=${key}]`)
+           input.parentNode.setAttribute('data-error',xhr.responseJSON.errors[key][0]);
+        }
+      $.toast({
+            heading: 'Error',
+            text:"Vui lòng nhập lại thông tin",
+            showHideTransition: 'fade',
+            icon: 'error'
+            })
+    }
+    })
+    })
+    //////////////////////////////
+    $('.add_employee>input').on('input',(function(){
+        $(this)[0].parentNode.removeAttribute('data-error')
+    }))
+    $('.add_employee>textarea').on('input',(function(){
+        $(this)[0].parentNode.removeAttribute('data-error')
+    }))
+    //////////////////////////////
+
+
+
     </script>
 
 

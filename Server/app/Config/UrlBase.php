@@ -24,4 +24,8 @@ class UrlBase
     {
         return 'styles/css/admin.css';
     }
+    public static function customerCss()
+    {
+        return 'styles/css/customer.css';
+    }
 }

@@ -60,6 +60,9 @@ class User extends Authenticatable
     public  const ROLE = [
         'admin' => 1,
         'customer' => 2,
+        'shipper' => 3,
+        'manager' => 4,
+
     ];
     //Role user
     public const STATUS = [

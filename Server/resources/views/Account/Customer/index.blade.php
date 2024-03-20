@@ -2,6 +2,7 @@
 @php
 use App\Config\UrlBase;
 @endphp
+@include("layout.loading")
 @if(session("success"))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>{{session("success")}}</strong>

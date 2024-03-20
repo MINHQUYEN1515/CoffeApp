@@ -54,4 +54,5 @@ Route::prefix('/')->controller(OrderController::class)->group(function () {
 });
 Route::prefix('')->controller(AdminController::class)->group(function () {
     Route::get('admin', 'index')->name('indexAdmin');
+    Route::post('addmember', 'addMember')->name('addMember');
 });
