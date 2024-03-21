@@ -53,6 +53,7 @@ Route::prefix('/')->controller(OrderController::class)->group(function () {
     Route::get('userorder', 'userOrder')->name('userOrder');
 });
 Route::prefix('')->controller(AdminController::class)->group(function () {
-    Route::get('admin', 'index')->name('indexAdmin');
+    Route::get('admin', 'index')->name('indexAdmin')->middleware('auth');
     Route::post('addmember', 'addMember')->name('addMember');
+    Route::post('revomemember', 'revomeMember')->name('revomeMember');
 });

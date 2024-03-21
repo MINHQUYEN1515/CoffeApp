@@ -123,12 +123,22 @@ class AccountController extends Controller
         try {
             $user = User::find(Auth::user()->id);
             $filename = time() . $request->file('image')->getClientOriginalName();
-            $image_path = public_path('storage/image/customer/' . $user->image);
-            if (file_exists($image_path)) {
+            if ($user->role == 1) {
+                $image_path = public_path('storage/image/admin/' . $user->image);
+                if (file_exists($image_path)) {
 
-                unlink($image_path);
+                    unlink($image_path);
+                }
+                $request->file('image')->move(base_path('public\storage\image\admin'), $filename);
+            } else {
+
+                $image_path = public_path('storage/image/customer/' . $user->image);
+                if (file_exists($image_path)) {
+
+                    unlink($image_path);
+                }
+                $request->file('image')->move(base_path('public\storage\image\customer'), $filename);
             }
-            $request->file('image')->move(base_path('public\storage\image\customer'), $filename);
             $user->image = $filename;
             $user->save();
             return back()->with('successImage', 'update image success! ');

@@ -104,6 +104,6 @@
 </div>
 <script>
     window.onload=function(){
-                        document.querySelector('#loading').classList.add('hide')
+    document.querySelector('#loading').classList.add('hide')
             } 
 </script>

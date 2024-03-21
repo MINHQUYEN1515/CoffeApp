@@ -65,16 +65,19 @@ use App\Config\UrlBase;
                                             <span class="material-icons">settings</span>
                                             Settings
                                         </a></li>
-                                    <li><a href="#">
+                                    <li><a href="{{route('logout')}}">
                                             <span class="material-icons">logout</span>
                                             Logout
                                         </a></li>
 
                                 </ul>
                             </li>
+                            <li>
 
+                            </li>
 
                         </ul>
+
                     </nav>
                 </div>
             </div>

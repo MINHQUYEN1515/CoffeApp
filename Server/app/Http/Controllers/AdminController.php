@@ -56,4 +56,22 @@ class AdminController extends Controller
             ]);
         }
     }
+    public function revomeMember(Request $request)
+    {
+        $data = $request->data;
+        try {
+            User::destroy($data);
+            return response()->json([
+                "status" => 200,
+                "message" => "success",
+                "data" => []
+            ]);
+        } catch (\Throwable $error) {
+            return response()->json([
+                "status" => 422,
+                "message" => "faild",
+                "data" => []
+            ]);
+        }
+    }
 }

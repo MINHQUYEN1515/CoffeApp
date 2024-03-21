@@ -4,6 +4,39 @@ use App\Config\UrlBase;
 @endphp
 <!doctype html>
 <html lang="en">
+<style>
+    #overlay {
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .cv-spinner {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px #ddd solid;
+        border-top: 4px #2e93e6 solid;
+        border-radius: 50%;
+        animation: sp-anime 0.8s infinite linear;
+    }
+
+    @keyframes sp-anime {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 
 <head>
     <!-- Required meta tags -->
@@ -82,6 +115,10 @@ use App\Config\UrlBase;
                                             <i class="material-icons">&#xE15C;</i>
                                             <span>Delete</span>
                                         </a>
+                                        <button class="btn btn-secondary" id="refresh">
+                                            <i class="material-icons">refresh</i>
+                                            <span>Refresh</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -171,6 +208,7 @@ use App\Config\UrlBase;
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
+
                                 </div>
                                 <input id="add_member-token" name="_token" type="hidden" value="{{csrf_token()}}">
                                 <div class="modal-body">
@@ -276,7 +314,7 @@ use App\Config\UrlBase;
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-success">Delete</button>
+                                    <button type="button" class="btn btn-success delete_member">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -308,6 +346,11 @@ use App\Config\UrlBase;
 
         </div>
 
+    </div>
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
     </div>
 
 
@@ -358,9 +401,6 @@ use App\Config\UrlBase;
        })
 
     //---------------------- Add manager-------------------------------//
-    $('.main-content').loading({
-    overlay: $("#custom-overlay")
-    });
     $.ajaxSetup({
         headers: {
         'X-CSRF-TOKEN':$('#add_member-token').val()
@@ -368,6 +408,8 @@ use App\Config\UrlBase;
     })
     //////////////////////////////////////
     $('.btn-add-member').click(function(){
+    $('#addEmployeeModal').hide()
+    $('#overlay').show()
     name=$(".add_name").val()
     email=$(".add_email").val()
     address=$('.add_address').val()
@@ -388,7 +430,9 @@ use App\Config\UrlBase;
     beforeSend: function() {
      
     },
-    success:function(data){
+    success:function(data){  
+        $('#overlay').hide()
+        $('.modal-backdrop').hide()
    $.toast({
         heading: 'Success',
         text: data.message,
@@ -397,6 +441,8 @@ use App\Config\UrlBase;
         })
     },
     error:function(xhr,stt,err){
+        $('#overlay').hide()
+        $('#addEmployeeModal').show()
         for (const key in xhr.responseJSON.errors) {
            const input= document.querySelector(`input[name=${key}],textarea[name=${key}]`)
            input.parentNode.setAttribute('data-error',xhr.responseJSON.errors[key][0]);
@@ -418,6 +464,52 @@ use App\Config\UrlBase;
         $(this)[0].parentNode.removeAttribute('data-error')
     }))
     //////////////////////////////
+
+    ////////////-------------------------Refresh--------------------------------
+    $('#refresh').click(function(){
+        window.location.reload()
+    })
+    ///--------------------------DELETE MANAGER------------------------------
+    $('.delete_member').click(function(){
+    $('#overlay').show()
+        formData=[]
+        $('.checkbox_item:checked').each(function(index,value){
+            formData.push(value.value)
+        });
+        $.ajax({
+            type:'POST',
+            url:"{{route('revomeMember')}}",
+            dataType:'json',
+            data:{
+                data:formData
+            },
+            success:function(data){
+                $('#overlay').hide()
+                $('#deleteEmployeeModal').hide()
+                $('.modal-backdrop').hide()
+               $.toast({
+                heading: 'Success',
+                text: "Revome success",
+                showHideTransition: 'slide',
+                icon: 'success'
+                })
+            },
+            beforeSend:function(){
+                $(this).hide()
+            },
+            error:function(xhr,stt,err){
+                $('#overlay').hide()
+                $('#deleteEmployeeModal').hide()
+                console.log(xhr);
+                console.log(stt);
+                console.log(err);
+            }
+        })
+    })
+       
+
+
+
 
 
 
